@@ -1,0 +1,23 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.test.grpc.service;
+
+import "SampleRequest.proto";
+import "SampleResponse.proto";
+
+
+
+service SingleRequestService {
+
+  /**
+      service consumes single request and returns single response
+   */
+  rpc getRecord(com.test.grpc.model.request.SomeRequest) returns (com.test.grpc.model.response.SomeResponse);
+
+
+  /**
+      service consumes single request and returns a stream of response
+   */
+  rpc getStream(com.test.grpc.model.request.SomeRequest) returns (stream com.test.grpc.model.response.SomeResponse);
+
+}

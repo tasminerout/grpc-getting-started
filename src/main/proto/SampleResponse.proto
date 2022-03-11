@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.test.grpc.model.response;
+
+message SomeResponse {
+  int32 id = 1;
+  string status = 2;
+  ResponseMetadata metadata = 3;
+  map <string, ResponsePayload> payload = 4;
+}
+
+message ResponsePayload {
+  repeated string item = 1;
+}
+
+message ResponseMetadata {
+  int32 id = 1;
+  string metadata = 2;
+}

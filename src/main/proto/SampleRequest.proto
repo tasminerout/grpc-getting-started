@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.test.grpc.model.request;
+
+
+message SomeRequest {
+
+  reserved 10 to 100; // field nos 10 to 100 can not be used in this message
+  reserved "index", "count"; // field name can not be index or count
+
+  int32 id = 1;
+  string someString = 2;
+  double someDouble = 3;
+  float someFloat = 4;
+  bool someBool = 5;
+  bytes someBytes = 6;
+
+
+  enum SomeEnum{
+    option allow_alias = true;
+    VALUE0 = 0;
+    VALUE1 = 1;
+    VALUE2 = 2;
+    VALUE3 = 3;
+    VALUE4 = 4;
+
+    ENUM_VALUE0 = 0;
+    ENUM_VALUE1 = 1;
+    ENUM_VALUE2 = 2;
+    ENUM_VALUE3 = 3;
+    ENUM_VALUE4 = 4;
+  }
+
+  SomeEnum enumVal = 7;
+
+}
